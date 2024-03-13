@@ -9,11 +9,7 @@ from .models import Records
 
 # Create your views here.
 def home(request):
-    record = Records.objects.all()
-    
-    
-    
-    
+    record = Records.objects.all()    
     # check see if logging in 
     if request.method=="POST":
         username= request.POST['username']
@@ -60,12 +56,7 @@ def customer_record(request,pk):
     else:
         messages.success(request,'you Must be login that page')
         return redirect('home')
-    
- 
- 
- 
- 
-    
+       
 def delete_record(request,pk):
     if request.user.is_authenticated:
         dele = Records.objects.get(id=pk)
